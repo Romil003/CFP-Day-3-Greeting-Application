@@ -1,9 +1,18 @@
 package com.bridgelabz.greetingapplication.Model;
 
-public class Greeting {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-    private long id;
+@Entity
+@Table(name = "GreetingTable")
+public class Greeting {
+    @Id
+    private long id ;
     private String msg;
+
+    public Greeting() {
+    }
 
     public Greeting(long id, String msg) {
         this.id = id;
