@@ -45,4 +45,9 @@ public class GreetingController {
     public List<Greeting> greeting(){
         return greetingService.getGreetingMsg();
     }
+
+    @PutMapping("/edit/{id}")
+    public Greeting greeting(@PathVariable long id ,@RequestBody Greeting greeting){
+        return greetingService.editGreetingMsg(id,greeting);
+    }
 }

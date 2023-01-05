@@ -38,4 +38,13 @@ public class GreetingService implements IGreetingService{
     public List<Greeting> getGreetingMsg() {
         return greetingRepository.findAll();
     }
+
+    @Override
+    public Greeting editGreetingMsg(long id, Greeting greeting) {
+        if(greeting.getId() == id){
+            greetingRepository.save(greeting);
+            return greeting;
+        }
+        return null;
+    }
 }
