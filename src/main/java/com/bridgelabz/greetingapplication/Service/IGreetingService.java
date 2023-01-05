@@ -6,4 +6,5 @@ import com.bridgelabz.greetingapplication.Model.User;
 public interface IGreetingService {
     Greeting addGreeting(User user);
     Greeting getGreetingById(long id);
+    Greeting saveGreetings(User user);
 }
