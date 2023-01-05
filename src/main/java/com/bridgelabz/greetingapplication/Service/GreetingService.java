@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapplication.Repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -31,5 +32,10 @@ public class GreetingService implements IGreetingService{
         String message = String.format(template,(user.getFirstName().isEmpty()) ? "Hello World" : user.getFirstName(),
                 (user.getLastName().isEmpty()) ? "Hello World" : user.getLastName());
         return greetingRepository.save(new Greeting(counter.incrementAndGet(),message));
+    }
+
+    @Override
+    public List<Greeting> getGreetingMsg() {
+        return greetingRepository.findAll();
     }
 }

@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapplication.Service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -38,5 +39,10 @@ public class GreetingController {
     @GetMapping("/msg/{id}")
     public Greeting greeting(@PathVariable long id){
         return greetingService.getGreetingById(id);
+    }
+
+    @GetMapping("/allmsg")
+    public List<Greeting> greeting(){
+        return greetingService.getGreetingMsg();
     }
 }
