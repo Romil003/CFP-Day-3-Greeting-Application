@@ -34,4 +34,9 @@ public class GreetingController {
     public Greeting greeting(@RequestBody User user){
         return greetingService.saveGreetings(user);
     }
+
+    @GetMapping("/msg/{id}")
+    public Greeting greeting(@PathVariable long id){
+        return greetingService.getGreetingById(id);
+    }
 }
